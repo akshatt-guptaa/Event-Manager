@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>College Event Manager</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>🎉 College Events</h1>
+  <a href="/add">Add New Event</a>
+
+  <div class="container">
+    <% events.forEach(event => { %>
+      <div class="card">
+        <img src="<%= event.image %>" alt="poster">
+        <h2><%= event.title %></h2>
+        <p><%= event.description %></p>
+        <small><%= event.date %></small>
+        <a class="btn" href="/register/<%= event._id %>">Register</a>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= event ? "Edit Event" : "Add Event" %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header><%= event ? "Edit Event" : "Add New Event" %></header>
+
+  <form method="POST" action="<%= event ? '/edit/' + event._id : '/add' %>">
+    <label>Title</label>
+    <input type="text" name="title" value="<%= event ? event.title : '' %>" required>
+
+    <label>Description</label>
+    <textarea name="description" rows="4"><%= event ? event.description : '' %></textarea>
+
+    <label>Date</label>
+    <input type="date" name="date" value="<%= event ? event.date.toISOString().split('T')[0] : '' %>" required>
+
+    <label>Image URL</label>
+    <input type="text" name="image" value="<%= event ? event.image : '' %>" required>
+
+    <button type="submit"><%= event ? "Update Event" : "Add Event" %></button>
+    <a href="/admin" class="button" style="background:#555;">Back</a>
+  </form>
+
+  <footer>© 2025 College Event Manager</footer>
+</body>
+</html>
